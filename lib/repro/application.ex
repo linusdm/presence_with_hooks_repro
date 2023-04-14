@@ -14,6 +14,8 @@ defmodule Repro.Application do
       Repro.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Repro.PubSub},
+      # Start Presence
+      ReproWeb.Presence,
       # Start Finch
       {Finch, name: Repro.Finch},
       # Start the Endpoint (http/https)
