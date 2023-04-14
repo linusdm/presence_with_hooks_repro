@@ -17,12 +17,6 @@ defmodule ReproWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ReproWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", ReproWeb do
   #   pipe_through :api
@@ -68,6 +62,7 @@ defmodule ReproWeb.Router do
       on_mount: [{ReproWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/", HomeLive
     end
   end
 
